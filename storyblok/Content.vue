@@ -2,11 +2,11 @@
 <template>
   <section v-editable="props.blok">
     <BaseGridContainer class="relative">
-      <div class="grid grid-cols-12 gap-8 w-full">
+      <div class="grid grid-cols-12 lg:gap-8 w-full">
         <div class="col-span-12 lg:col-span-10 flex justify-start flex-col">
           <Navigation />
         </div>
-        <div class="col-span-12 lg:col-span-12 flex justify-start flex-col">
+        <div class="col-span-12 lg:col-span-12 flex justify-start flex-col mb-8 lg:mb-0">
           <h2
             v-if="props.blok.title"
             class="mb-6"

@@ -1,10 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section v-editable="props.blok">
-    <div class="flex mb-8">
+    <div class="flex flex-col lg:flex-row mb-8">
       <NuxtLink
         to="/"
-        class="flex title-font font-medium items-center max-w-[55px] lg:max-w-[75px]"
+        class="flex title-font font-medium items-center max-w-[55px] lg:max-w-[75px] shrink-0 mb-8 lg:mb-0"
         aria-labelledby="companylogo"
       >
         <BaseImage
@@ -14,8 +14,8 @@
         />
       </NuxtLink>
 
-      <nav class="hidden lg:flex flex-wrap items-center text-base justify-center ml-16">
-        <ul class="flex gap-4 w-full">
+      <nav class="flex flex-wrap items-center text-base justify-center lg:ml-16">
+        <ul class="flex flex-col xs:flex-row gap-4 w-full">
           <li
             v-for="(navItem, index) in navigationData.nav"
             :key="index"
