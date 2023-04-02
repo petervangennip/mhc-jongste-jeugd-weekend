@@ -30,39 +30,32 @@
     // add story to a state
     const stateStory = useState('story');
     stateStory.value = story;
-    // const { content } = story.value;
-
-    // get global fallback settings
-    // const siteSettings = await useSiteSettings();
+    const { content } = story.value;
 
     // meta tags
-    // const companyName = 'MHC Best';
-    // const pageName = story.value.name;
-    // const title = `${pageName} | ${companyName}`;
-    // const description = content.metaDescription || story.value.name;
-    // const robots = content.metaRobots || 'index, follow';
-    // const shareImage = content.shareImage?.filename || siteSettings.shareImage?.filename;
-    // const metaFullUrl = `${config.public.siteHostname}/${slug && slug.length > 0 ? slug.join('/') : ''}`;
+    const companyName = 'MHC Best';
+    const pageName = story.value.name;
+    const title = `${pageName} | ${companyName}`;
+    const description = 'MHC Best - Jongste Jeugd Weekend | 23 & 24 juni 2023 | Best';
+    const robots = content.metaRobots || 'noindex,nofollow';
+    const metaFullUrl = `${config.public.siteHostname}/${slug && slug.length > 0 ? slug.join('/') : ''}`;
 
-    // useSeoMeta({
-    //   title,
-    //   description,
-    //   robots,
-    //   // open graph
-    //   ogType: 'website',
-    //   ogTitle: title,
-    //   ogDescription: description,
-    //   ogImage: shareImage,
-    //   ogUrl: metaFullUrl,
-    //   // twitter
-    //   twitterCard: 'summary_large_image',
-    //   twitterTitle: title,
-    //   twitterDescription: description,
-    //   twitterImage: shareImage,
-    //   twitterImageSrc: shareImage,
-    //   twitterImageAlt: description,
-    //   twitterUrl: metaFullUrl,
-    // });
+    useSeoMeta({
+      title,
+      description,
+      robots,
+      // open graph
+      ogType: 'website',
+      ogTitle: title,
+      ogDescription: description,
+      // ogImage: shareImage,
+      ogUrl: metaFullUrl,
+      // twitter
+      twitterCard: 'summary_large_image',
+      twitterTitle: title,
+      twitterDescription: description,
+      twitterUrl: metaFullUrl,
+    });
   } catch (error) {
     showError({ statusCode: 404, statusMessage: 'Page Not Found' });
   }
