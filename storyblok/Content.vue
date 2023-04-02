@@ -24,7 +24,7 @@
             :src="props.blok.image.filename"
             :alt="props.blok.image.alt"
             sizes="xxl:360px xl:360px lg:360px md:100vw sm:100vw xs:100vw xxs:100vw"
-            class="w-full lg:rounded-lg lg:rotate-[8deg] shadow-2xl"
+            class="shadow-md w-full lg:rounded-lg lg:rotate-[8deg]"
           />
         </div>
       </div>
