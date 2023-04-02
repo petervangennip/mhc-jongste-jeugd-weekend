@@ -1,0 +1,69 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+<template>
+  <div>
+    <StoryblokComponent
+      v-if="story"
+      :blok="story.content"
+    />
+  </div>
+</template>
+
+<script setup>
+  const config = useRuntimeConfig();
+
+  const route = useRoute();
+  const { slug } = route.params;
+  let story = null;
+
+  // add current language to html tag
+  useHead({
+    htmlAttrs: {
+      lang: 'en',
+    },
+  });
+
+  try {
+    story = await useAsyncStoryblok(slug && slug.length > 0 ? slug.join('/') : 'home', {
+      version: config.public.contentVersion,
+    });
+
+    // add story to a state
+    const stateStory = useState('story');
+    stateStory.value = story;
+    // const { content } = story.value;
+
+    // get global fallback settings
+    // const siteSettings = await useSiteSettings();
+
+    // meta tags
+    // const companyName = 'MHC Best';
+    // const pageName = story.value.name;
+    // const title = `${pageName} | ${companyName}`;
+    // const description = content.metaDescription || story.value.name;
+    // const robots = content.metaRobots || 'index, follow';
+    // const shareImage = content.shareImage?.filename || siteSettings.shareImage?.filename;
+    // const metaFullUrl = `${config.public.siteHostname}/${slug && slug.length > 0 ? slug.join('/') : ''}`;
+
+    // useSeoMeta({
+    //   title,
+    //   description,
+    //   robots,
+    //   // open graph
+    //   ogType: 'website',
+    //   ogTitle: title,
+    //   ogDescription: description,
+    //   ogImage: shareImage,
+    //   ogUrl: metaFullUrl,
+    //   // twitter
+    //   twitterCard: 'summary_large_image',
+    //   twitterTitle: title,
+    //   twitterDescription: description,
+    //   twitterImage: shareImage,
+    //   twitterImageSrc: shareImage,
+    //   twitterImageAlt: description,
+    //   twitterUrl: metaFullUrl,
+    // });
+  } catch (error) {
+    showError({ statusCode: 404, statusMessage: 'Page Not Found' });
+  }
+</script>
