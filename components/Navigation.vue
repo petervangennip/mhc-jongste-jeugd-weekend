@@ -22,7 +22,7 @@
           >
             <BaseLink
               v-if="navItem.link?.cached_url"
-              class="font-bold text-primary-500 no-underline text-lg nav-link hover:underline underline-offset-[6px] decoration-2"
+              class="font-bold text-primary-500 no-underline text-lg nav-link underline-offset-[6px] decoration-2 px-4 py-2 rounded-2xl transition-all"
               :href="`/${navItem.link?.cached_url}`"
               :target="navItem.link?.target"
             >
@@ -52,3 +52,9 @@
     },
   });
 </script>
+
+<style lang="postcss">
+  .router-link-exact-active {
+    @apply bg-primary-100 text-black;
+  }
+</style>
