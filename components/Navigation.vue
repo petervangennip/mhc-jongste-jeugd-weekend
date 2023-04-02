@@ -15,7 +15,7 @@
       </NuxtLink>
 
       <nav class="hidden lg:flex flex-wrap items-center text-base justify-center ml-16">
-        <ul class="flex gap-14 w-full">
+        <ul class="flex gap-4 w-full">
           <li
             v-for="(navItem, index) in navigationData.nav"
             :key="index"
@@ -55,6 +55,6 @@
 
 <style lang="postcss">
   .router-link-exact-active {
-    @apply bg-primary-100 text-black;
+    @apply bg-primary-500 text-white;
   }
 </style>
