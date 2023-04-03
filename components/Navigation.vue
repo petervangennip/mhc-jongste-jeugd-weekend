@@ -14,7 +14,7 @@
         />
       </NuxtLink>
 
-      <nav class="flex flex-wrap items-center text-base justify-center lg:ml-16">
+      <nav class="nav flex flex-wrap items-center text-base justify-center lg:ml-16">
         <ul class="flex flex-col xs:flex-row gap-4 w-full">
           <li
             v-for="(navItem, index) in navigationData.nav"
@@ -23,7 +23,7 @@
             <BaseLink
               v-if="navItem.link?.cached_url"
               class="font-bold text-primary-500 no-underline text-lg nav-link underline-offset-[6px] decoration-2 px-4 py-2 rounded-2xl transition-all"
-              :href="`/${navItem.link?.cached_url}`"
+              :href="navItem.link?.cached_url === 'home' ? '/' : `/${navItem.link?.cached_url}`"
               :target="navItem.link?.target"
             >
               {{ navItem.label }}
@@ -54,7 +54,9 @@
 </script>
 
 <style lang="postcss">
-  .router-link-exact-active {
-    @apply bg-primary-500 text-white;
+  .nav {
+    .router-link-exact-active {
+      @apply bg-primary-500 text-white;
+    }
   }
 </style>
