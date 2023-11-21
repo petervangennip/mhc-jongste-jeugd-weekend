@@ -1,121 +1,156 @@
-/* html {
-  @apply font-vag;
-} */
+@layer base {
+  /* html {
+    @apply font-vag;
+  } */
 
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  @apply font-bold text-black;
-}
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    @apply font-kavoon text-black;
 
-h1,
-.h1 {
-  @apply text-6xl leading-9;
-
-  @screen lg {
-    @apply text-10xl leading-13;
+    &.title-outline {
+      @apply text-white;
+      -webkit-text-stroke: 2px #3267b2;
+      text-shadow: 0 2px 0 #000;
+    }
   }
-}
 
-h2,
-.h2 {
-  @apply text-4xl leading-8;
-
-  @screen lg {
-    @apply text-8xl leading-12;
-  }
-}
-
-h3,
-.h3 {
-  @apply text-2xl leading-7;
-
-  @screen lg {
+  h1,
+  .h1 {
     @apply text-6xl leading-9;
+
+    @screen lg {
+      @apply text-10xl leading-13;
+    }
   }
-}
 
-h4,
-.h4 {
-  @apply text-xl leading-6;
+  h2,
+  .h2 {
+    @apply text-4xl leading-8;
 
-  @screen lg {
+    @screen lg {
+      @apply text-8xl leading-12;
+    }
+  }
+
+  h3,
+  .h3 {
     @apply text-2xl leading-7;
+
+    @screen lg {
+      @apply text-6xl leading-9;
+    }
   }
-}
 
-h5,
-.h5 {
-  @apply text-lg leading-5;
-
-  @screen lg {
+  h4,
+  .h4 {
     @apply text-xl leading-6;
-  }
-}
 
-.intro-text {
-  @apply text-xl leading-6;
-
-  @screen lg {
-    @apply text-2xl leading-8;
-  }
-}
-
-p {
-  @apply text-base leading-7;
-}
-
-a {
-  @apply underline text-black;
-}
-
-.rte {
-  ul {
-    @apply list-disc pl-4 mb-3;
-
-    a {
-      @apply mb-0;
+    @screen lg {
+      @apply text-2xl leading-7;
     }
   }
 
-  ol {
-    @apply list-decimal pl-4 mb-3;
+  h5,
+  .h5 {
+    @apply text-lg leading-5;
 
-    a {
-      @apply mb-0;
+    @screen lg {
+      @apply text-xl leading-6;
     }
+  }
+
+  .intro-text {
+    @apply text-xl leading-6;
+
+    @screen lg {
+      @apply text-2xl leading-8;
+    }
+  }
+
+  p {
+    @apply text-lg leading-7;
   }
 
   a {
-    @apply block mb-3 underline;
+    @apply text-black underline;
+  }
 
-    &:hover {
-      @apply no-underline;
+  .rte {
+    ul {
+      @apply mb-3 list-disc pl-4;
+
+      a {
+        @apply mb-0;
+      }
     }
 
-    &.btn {
-      @apply no-underline;
+    ol {
+      @apply mb-3 list-decimal pl-4;
+
+      a {
+        @apply mb-0;
+      }
+    }
+
+    a {
+      @apply mb-3 block underline;
 
       &:hover {
         @apply no-underline;
       }
+
+      &.btn {
+        @apply no-underline;
+
+        &:hover {
+          @apply no-underline;
+        }
+      }
     }
-  }
 
-  a {
-    @apply underline decoration-primary-300 decoration-[5px] decoration-solid underline-offset-4 transition-colors;
+    a {
+      @apply underline decoration-blue decoration-solid decoration-[5px] underline-offset-4 transition-colors;
 
-    &:hover {
-      @apply underline decoration-primary-300;
+      &:hover {
+        @apply underline decoration-blue;
+      }
+    }
+
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+      .title-outline {
+        @apply text-white;
+        -webkit-text-stroke: 2px #3267b2;
+        text-shadow: 0 2px 0 #000;
+      }
+    }
+
+    p {
+      @apply mb-4;
+    }
+
+    &-text-center {
+      @apply block text-center;
     }
   }
 }

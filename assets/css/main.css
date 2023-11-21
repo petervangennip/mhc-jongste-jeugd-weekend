@@ -2,6 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* fonts */
+@import './fonts.css';
+
 /* base layer */
 @import './layers/base/colors.css';
 @import './layers/base/layout.css';

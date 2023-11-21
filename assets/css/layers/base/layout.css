@@ -3,23 +3,4 @@
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
   }
-
-  body {
-    @apply bg-primary-100 font-alkatra;
-    animation: rainbow 8s ease infinite;
-    background-image: linear-gradient(124deg, #277462, #b1d347, #277439, #5ca144);
-    background-size: 800% 800%;
-  }
-}
-
-@keyframes rainbow {
-  0% {
-    background-position: 1% 80%;
-  }
-  50% {
-    background-position: 99% 20%;
-  }
-  100% {
-    background-position: 1% 80%;
-  }
 }

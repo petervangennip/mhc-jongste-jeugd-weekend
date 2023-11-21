@@ -1,14 +1,10 @@
 @layer base {
   :root {
-    /* green */
-    --color-primary-100: 223 255 237; /* #DFFFED */
-    --color-primary-300: 9 115 72; /* #097348 */
-    --color-primary-500: 0 102 0; /* #006600 */
-
-    /* yellow */
-    --color-secondary-500: 255 241 12; /* #FFF10C */
-
-    /* black */
-    --color-secondary-500: 25 23 23; /* #191717 */
+    --color-blue: 50 103 178; /* #3267B2 */
+    --color-yellow: 255 241 12; /* #FFF10C */
+    --color-brown: 236 190 138; /* #ecbe8a */
+    --color-black: 25 23 23; /* #191717 */
+    --color-green: 9 115 72; /* #097348 */
+    --color-gray-light: 211 211 211; /* #d3d3d3 */
   }
 }
