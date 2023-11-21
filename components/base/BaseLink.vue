@@ -1,8 +1,8 @@
 <template>
   <nuxt-link
-    :id="props.id"
-    :to="props.href"
-    :target="props.target"
+    :id="props.id || null"
+    :to="url"
+    :target="props.link?.target"
   >
     <slot />
   </nuxt-link>
@@ -14,13 +14,17 @@
       type: String,
       default: null,
     },
-    href: {
-      type: String,
-      default: '',
+    link: {
+      type: Object,
+      default: () => ({}),
     },
-    target: {
-      type: String,
-      default: null,
-    },
+  });
+
+  const url = computed(() => {
+    if (props.link?.target === '_blank') {
+      return props.link?.cached_url;
+    } else {
+      return `${props.link?.cached_url}`;
+    }
   });
 </script>

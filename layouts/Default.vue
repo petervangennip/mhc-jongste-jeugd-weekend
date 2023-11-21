@@ -1,10 +1,29 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <main class="app">
-    <div class="app-wrapper container bg-white rounded-sm mx-auto p-12 lg:p-32 lg:my-32 shadow-xl">
-      <div class="app-inner">
-        <slot />
-      </div>
-    </div>
+    <AppHeader />
+    <slot />
+    <AppFooter />
+    <CookieControl
+      v-if="!inEditMode"
+      locale="nl"
+    />
   </main>
 </template>
+
+<script setup>
+  const { cookiesEnabledIds } = useCookieControl();
+  const inEditMode = useInEditMode();
+
+  // example: react to a cookie being accepted
+  watch(
+    () => cookiesEnabledIds.value,
+    (current, previous) => {
+      if (!previous?.includes('google-analytics') && current?.includes('google-analytics')) {
+        // cookie with id `google-analytics` got added
+        window.location.reload(); // placeholder for your custom change handler
+      }
+    },
+    { deep: true },
+  );
+</script>

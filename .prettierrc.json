@@ -7,5 +7,7 @@
   "printWidth": 120,
   "singleAttributePerLine": true,
   "vueIndentScriptAndStyle": true,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "pluginSearchDirs": false
 }

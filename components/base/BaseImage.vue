@@ -1,8 +1,8 @@
 <template>
   <NuxtImg
     :provider="props.provider"
-    :src="props.src"
-    :alt="props.alt"
+    :src="imageSrc"
+    :alt="imageAlt"
     :width="props.width"
     :height="props.height"
     :sizes="props.sizes"
@@ -17,13 +17,9 @@
       type: String,
       default: 'storyblok',
     },
-    src: {
-      type: String,
-      default: '',
-    },
-    alt: {
-      type: String,
-      default: '',
+    image: {
+      type: Object,
+      default: () => ({}),
     },
     width: {
       type: String,
@@ -48,4 +44,12 @@
   });
 
   const lazyLoading = computed(() => (props.lazy ? 'lazy' : null));
+
+  const imageSrc = computed(() => {
+    return props.image.filename ? props.image.filename : null;
+  });
+
+  const imageAlt = computed(() => {
+    return props.image.alt ? props.image.alt : null;
+  });
 </script>

@@ -1,44 +1,19 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
-  <!-- eslint-disable vue/no-v-html -->
-  <div
-    class="rte"
-    v-html="resolvedRichText"
-  ></div>
+  <div class="rte">
+    <div v-html="resolvedRichText"></div>
+  </div>
 </template>
 
 <script setup>
+  import { renderRichText } from '@storyblok/vue';
+
   const props = defineProps({
     richText: {
       type: Object,
-      default: () => ({}),
+      default: () => {},
     },
   });
 
-  const resolvedRichText = computed(() =>
-    renderRichText(props.richText, {
-      resolver: (component, blok) => {
-        return `<component :blok='${JSON.stringify(blok)}' is="${component}" />`;
-      },
-    }),
-  );
+  const resolvedRichText = computed(() => renderRichText(props.richText));
 </script>
-
-<style lang="postcss">
-  .rte {
-    blockquote,
-    dl,
-    dd,
-    ul,
-    ol,
-    hr,
-    figure,
-    p,
-    pre {
-      @apply mb-3 text-black;
-
-      &:last-child {
-        @apply mb-0;
-      }
-    }
-  }
-</style>

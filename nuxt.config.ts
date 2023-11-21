@@ -1,5 +1,9 @@
+// @ts-nocheck
+import eslintPlugin from 'vite-plugin-eslint';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
-// eslint-disable-next-line no-undef
+const cookieControlConfig = require('./cookieconfig.js');
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -31,13 +35,15 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  cookieControl: cookieControlConfig,
+
   css: ['~/assets/css/main.css'],
-  modules: [
-    '@nuxt/image-edge',
-    'nuxt-icon',
-    '@nuxtjs/google-fonts',
-    ['@storyblok/nuxt', { accessToken: '7HfGfsjuelrueg4FycJhAAtt' }],
-  ],
+
+  devtools: {
+    enabled: true,
+  },
+
   image: {
     storyblok: {
       baseURL: 'https://a.storyblok.com',
@@ -52,14 +58,20 @@ export default defineNuxtConfig({
       xxl: 1440,
     },
   },
-  googleFonts: {
-    families: {
-      Alkatra: {
-        wght: [400, 500],
-        // ital: [300, 400, 700],
-      },
-    },
+
+  linkChecker: {
+    showLiveInspections: false,
   },
+
+  modules: [
+    '@nuxt/image',
+    'nuxt-icon',
+    '@nuxtseo/module',
+    '@dargmuesli/nuxt-cookie-control',
+    '@nuxtjs/html-validator',
+    ['@storyblok/nuxt', { accessToken: process.env.NUXT_STORYBLOK_APIKEY }],
+  ],
+
   postcss: {
     plugins: {
       'postcss-import': {},
@@ -68,11 +80,25 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
   runtimeConfig: {
     // Public keys that are exposed to the client
     public: {
       siteHostname: process.env.SITE_HOSTNAME || '',
       contentVersion: process.env.NUXT_STORYBLOK_CONTENTVERSION || 'draft',
+      storyblokSpaceId: process.env.NUXT_STORYBLOK_SPACE_ID,
     },
+  },
+
+  site: {
+    url: 'https://jongstejeugdweekend.nl',
+    name: 'MHC Best | Jongste Jeugd Weekend',
+    description:
+      'Het MHC Jongste Jeugd Weekend is een jaarlijks terugkerend evenement voor de jongste jeugd (t/m 12 jaar) van hockeyvereniging MHC Best. Twee leuke dagen met o.a. spelletjes, plezier, tentjes opzetten en meer!',
+    defaultLocale: 'nl',
+    identity: {
+      type: 'Organization',
+    },
+    twitter: '@mhc_best',
   },
 });

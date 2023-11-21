@@ -7,25 +7,17 @@ module.exports = {
     './nuxt.config.{js,ts}',
     './storyblok/**/**/*.{js,vue,ts}',
   ],
-  safelist: [
-    {
-      pattern: /bg-(primary|secondary|tertiary|quaternary|gray)-(300|500)/,
-    },
-  ],
   theme: {
     colors: {
       white: '#fff',
       black: '#000',
       transparent: 'transparent',
       current: 'currentColor',
-      primary: {
-        100: 'rgb(var(--color-primary-100) / <alpha-value>)',
-        300: 'rgb(var(--color-primary-300) / <alpha-value>)',
-        500: 'rgb(var(--color-primary-500) / <alpha-value>)',
-      },
-      secondary: {
-        500: 'rgb(var(--color-secondary-500) / <alpha-value>)',
-      },
+      blue: 'rgb(var(--color-blue) / <alpha-value>)',
+      yellow: 'rgb(var(--color-yellow) / <alpha-value>)',
+      brown: 'rgb(var(--color-brown) / <alpha-value>)',
+      green: 'rgb(var(--color-green) / <alpha-value>)',
+      'gray-light': 'rgb(var(--color-gray-light) / <alpha-value>)',
     },
     screens: {
       xs: '480px',
@@ -51,9 +43,12 @@ module.exports = {
         full: '9999px',
       },
       fontFamily: {
-        alkatra: ['Alkatra', 'cursive'],
+        kavoon: ['Kavoon', 'cursive'],
+        anton: ['Anton', 'sans-serif'],
+        fira: ['Fira Sans', 'sans-serif'],
       },
       fontSize: {
+        '2xs': '0.625rem', // 10px
         xs: '0.75rem', // 12px
         sm: '0.875rem', // 14px
         base: '1rem', // 16px
@@ -68,6 +63,8 @@ module.exports = {
         '8xl': '3.75rem', // 60px
         '9xl': '4.375rem', // 70px
         '10xl': '5rem', // 80px
+        '11xl': '6rem', // 96px
+        '12xl': '7rem', // 112px
       },
       lineHeight: {
         none: '1',
